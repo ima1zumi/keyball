@@ -26,7 +26,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_universal(
     KC_Q           , KC_W    , KC_E          , KC_R           , KC_T         ,                                         KC_Y , KC_U       , KC_I    , KC_O    , KC_P         ,
     KC_A           , KC_S    , KC_D          , CTL_T(KC_F)    , KC_G         ,                                         KC_H , KC_J       , KC_K    , KC_L    , KC_MINS      ,
-    SFT_T(KC_Z)    , KC_X    , KC_C          , KC_V           , KC_B         ,                                         KC_N , KC_M       , MS_BTN1 , MS_BTN2 , LT(3,KC_TAB) ,
+    SFT_T(KC_Z)    , KC_X    , KC_C          , KC_V           , KC_B         ,                                         KC_N , KC_M       , KC_BTN1 , KS_BTN2 , LT(3,KC_TAB) ,
     SFT_T(KC_COMM) , KC_LCTL , ALT_T(KC_ESC) , CMD_T(KC_LNG1) , LT(1,KC_SPC) , LT(2,KC_LNG1) , LT(1,KC_BSPC) , LT(2,KC_ENT) , XXXXXXX    , XXXXXXX , XXXXXXX , KC_DOT
   ),
 
@@ -47,7 +47,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [3] = LAYOUT_universal(
     XXXXXXX        , XXXXXXX , XXXXXXX       , XXXXXXX        , XXXXXXX      ,                                      XXXXXXX , KC_KB_MUTE , KC_KB_VOLUME_DOWN , KC_KB_VOLUME_UP , XXXXXXX  ,
     XXXXXXX        , XXXXXXX , XXXXXXX       , XXXXXXX        , XXXXXXX      ,                                      XXXXXXX ,LCMD(KC_LEFT),LCMD(KC_RGHT), _______  , XXXXXXX    ,
-    XXXXXXX        , XXXXXXX , XXXXXXX       , XXXXXXX        , XXXXXXX      ,                                      XXXXXXX , XXXXXXX    , MS_BTN1  , MS_BTN2  , XXXXXXX    ,
+    XXXXXXX        , XXXXXXX , XXXXXXX       , XXXXXXX        , XXXXXXX      ,                                      XXXXXXX , XXXXXXX    , KS_BTN1  , KS_BTN2  , XXXXXXX    ,
     XXXXXXX        , XXXXXXX , XXXXXXX       , XXXXXXX        , _______      , _______       , _______ ,            _______ , XXXXXXX    , XXXXXXX  , XXXXXXX  , XXXXXXX
   ),
 };
