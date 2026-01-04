@@ -22,43 +22,46 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 // Tap dance definitions
 enum {
-  TD_D_ESC
+  TD_D_ESC,     // 1回=d, 2回=esc
+  TD_QUOT_DQUO, // 1回=', 2回="
+  TD_COLN_SCLN  // 1回=:, 2回=;
 };
 
 // 2) Tap Dance の動作を定義（1回=kc1、2回=kc2）
 tap_dance_action_t tap_dance_actions[] = {
-  [TD_D_ESC] = ACTION_TAP_DANCE_DOUBLE(KC_D, KC_ESC),
+    [TD_D_ESC] = ACTION_TAP_DANCE_DOUBLE(KC_D, KC_ESC),
+    [TD_QUOT_DQUO] = ACTION_TAP_DANCE_DOUBLE(KC_QUOT, KC_DQUO),
+    [TD_COLN_SCLN] = ACTION_TAP_DANCE_DOUBLE(KC_COLN, KC_SCLN);
 };
 
 // clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-  // keymap for default
   [0] = LAYOUT_universal(
-    KC_Q           , KC_W    , KC_E          , KC_R           , KC_T         ,                                         KC_Y , KC_U       , KC_I    , KC_O    , KC_P         ,
-    KC_A           , KC_S    , KC_D          , CTL_T(KC_F)    , KC_G         ,                                         KC_H , KC_J       , KC_K    , KC_L    , KC_MINS      ,
-    SFT_T(KC_Z)    , KC_X    , TD_D_ESC      , KC_V           , KC_B         ,                                         KC_N , KC_M       , KC_BTN1 , KC_BTN2 , LT(3,KC_TAB) ,
-    SFT_T(KC_COMM) , KC_LCTL , ALT_T(KC_ESC) , CMD_T(KC_LNG1) , LT(1,KC_SPC) , LT(2,KC_LNG1) ,       KC_BSPC , LT(2,KC_ENT) , XXXXXXX    , XXXXXXX , XXXXXXX , KC_DOT
+    KC_Q           , KC_W    , KC_E          , KC_R           , KC_T         ,                                         KC_Y , KC_U         , KC_I    , KC_O    , KC_P         ,
+    KC_A           , KC_S    , KC_D          , CTL_T(KC_F)    , KC_G         ,                                         KC_H , KC_J         , KC_K    , KC_L    , KC_MINS      ,
+    SFT_T(KC_Z)    , KC_X    , TD_D_ESC      , KC_V           , KC_B         ,                                         KC_N , KC_M         , KC_BTN1 , KC_BTN2 , LT(3,KC_TAB) ,
+    SFT_T(KC_COMM) , KC_LCTL , ALT_T(KC_ESC) , CMD_T(KC_LNG1) , LT(1,KC_SPC) , LT(2,KC_LNG1) ,       KC_BSPC , LT(2,KC_ENT) , XXXXXXX      , XXXXXXX , XXXXXXX , KC_DOT
   ),
 
   [1] = LAYOUT_universal(
-    KC_1           , KC_2    , KC_3          , KC_4           , KC_5         ,                                         KC_6 , KC_7       , KC_8    , KC_9    , KC_0         ,
-    XXXXXXX        , XXXXXXX , XXXXXXX       , XXXXXXX        , XXXXXXX      ,                                      XXXXXXX , XXXXXXX    , XXXXXXX , XXXXXXX , XXXXXXX      ,
-    KC_F1          , KC_F2   , KC_F3         , KC_F4          , KC_F5        ,                                        KC_F6 , KC_F7      , KC_F8   , KC_F9   , KC_F10       ,
-    XXXXXXX        , XXXXXXX , XXXXXXX       , XXXXXXX        , _______      , _______       , _______ ,            _______ , XXXXXXX    , XXXXXXX , XXXXXXX , XXXXXXX
+    KC_1           , KC_2    , KC_3          , KC_4           , KC_5         ,                                         KC_6 , KC_7         , KC_8    , KC_9    , KC_0         ,
+    XXXXXXX        , XXXXXXX , XXXXXXX       , XXXXXXX        , XXXXXXX      ,                                      XXXXXXX , XXXXXXX      , XXXXXXX , XXXXXXX , XXXXXXX      ,
+    KC_F1          , KC_F2   , KC_F3         , KC_F4          , KC_F5        ,                                        KC_F6 , KC_F7        , KC_F8   , KC_F9   , KC_F10       ,
+    XXXXXXX        , XXXXXXX , XXXXXXX       , XXXXXXX        , _______      , _______       , _______ ,            _______ , XXXXXXX      , XXXXXXX , XXXXXXX , XXXXXXX
   ),
 
   [2] = LAYOUT_universal(
-    XXXXXXX        , KC_HASH , KC_DLR        , KC_CIRC        , KC_TILD      ,                                      KC_SCLN , KC_COLN    , KC_LBRC  , KC_RBRC  , KC_BSPC    ,
-    KC_PERC        , KC_ASTR , KC_SLSH       , KC_PLUS        , KC_EQL       ,                                      KC_QUOT , KC_DQUO    , KC_LPRN  , KC_RPRN  , KC_AMPR    ,
-    KC_GRV         , KC_AT   , KC_BSLS       , KC_EXLM        , KC_QUES      ,                                      KC_LABK , KC_RABK    , KC_LCBR  , KC_RCBR  , KC_PIPE    ,
-    XXXXXXX        , XXXXXXX , XXXXXXX       , XXXXXXX        , _______      , _______       , _______ ,            _______ , XXXXXXX    , XXXXXXX  , XXXXXXX  , XXXXXXX
+    XXXXXXX        , KC_HASH , KC_DLR        , KC_CIRC        , KC_TILD      ,                                      KC_SCLN , KC_COLN      , KC_LBRC  , KC_RBRC  , KC_BSPC    ,
+    KC_PERC        , KC_ASTR , KC_SLSH       , KC_PLUS        , KC_EQL       ,                                 TD_QUOT_DQUO , TD_COLN_SCLN , KC_LPRN  , KC_RPRN  , KC_AMPR    ,
+    KC_GRV         , KC_AT   , KC_BSLS       , KC_EXLM        , KC_QUES      ,                                      KC_LABK , KC_RABK      , KC_LCBR  , KC_RCBR  , KC_PIPE    ,
+    QK_BOOT        , XXXXXXX , XXXXXXX       , XXXXXXX        , _______      , _______       , _______ ,            _______ , XXXXXXX      , XXXXXXX  , XXXXXXX  , QK_BOOT
   ),
 
   [3] = LAYOUT_universal(
-    XXXXXXX        , XXXXXXX , XXXXXXX       , XXXXXXX        , XXXXXXX      ,                                      XXXXXXX , KC_KB_MUTE , KC_KB_VOLUME_DOWN , KC_KB_VOLUME_UP , XXXXXXX  ,
-    XXXXXXX        , XXXXXXX , XXXXXXX       , XXXXXXX        , XXXXXXX      ,                                      XXXXXXX ,LCMD(KC_LEFT),LCMD(KC_RGHT), _______  , XXXXXXX    ,
-    XXXXXXX        , XXXXXXX , XXXXXXX       , XXXXXXX        , XXXXXXX      ,                                      XXXXXXX , XXXXXXX    , KC_BTN1  , KC_BTN2  , XXXXXXX    ,
-    XXXXXXX        , XXXXXXX , XXXXXXX       , XXXXXXX        , _______      , _______       , _______ ,            _______ , XXXXXXX    , XXXXXXX  , XXXXXXX  , XXXXXXX
+    XXXXXXX        , XXXXXXX , XXXXXXX       , XXXXXXX        , XXXXXXX      ,                                      XXXXXXX , KC_KB_MUTE   , KC_KB_VOLUME_DOWN , KC_KB_VOLUME_UP , XXXXXXX  ,
+    XXXXXXX        , XXXXXXX , XXXXXXX       , XXXXXXX        , XXXXXXX      ,                                      XXXXXXX ,LCMD(KC_LEFT) ,LCMD(KC_RGHT), _______  , XXXXXXX    ,
+    XXXXXXX        , XXXXXXX , XXXXXXX       , XXXXXXX        , XXXXXXX      ,                                      XXXXXXX , XXXXXXX     , KC_BTN1  , KC_BTN2  , XXXXXXX    ,
+    XXXXXXX        , XXXXXXX , XXXXXXX       , XXXXXXX        , _______      , _______       , _______ ,            _______ , XXXXXXX     , XXXXXXX  , XXXXXXX  , XXXXXXX
   ),
 };
 // clang-format on
