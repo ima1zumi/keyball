@@ -45,7 +45,7 @@ const uint16_t PROGMEM tab_combo[] = {KC_J, KC_K, COMBO_END};
 const uint16_t PROGMEM comm_tab_combo[] = {KC_A, KC_Q, COMBO_END};
 
 combo_t key_combos[] = {
-  [SD_ESC] = COMBO(esc_combo, SD_ESC),
+  [SD_ESC] = COMBO(esc_combo, KC_ESC),
   [JK_TAB] = COMBO(tab_combo, KC_TAB),
   [COMM_TAB] = COMBO(comm_tab_combo, LCMD(KC_TAB))
 };
