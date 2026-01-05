@@ -35,17 +35,17 @@ tap_dance_action_t tap_dance_actions[] = {
 // Combo definitions
 
 enum combos {
-  DF_ESC,
+  SD_ESC,
   JK_TAB,
   COMM_TAB
 };
 
-const uint16_t PROGMEM esc_combo[] = {KC_D, CTL_T(KC_F), COMBO_END};
+const uint16_t PROGMEM esc_combo[] = {KC_S, KC_D, COMBO_END};
 const uint16_t PROGMEM tab_combo[] = {KC_J, KC_K, COMBO_END};
 const uint16_t PROGMEM comm_tab_combo[] = {KC_A, KC_Q, COMBO_END};
 
 combo_t key_combos[] = {
-  [DF_ESC] = COMBO(esc_combo, KC_ESC),
+  [SD_ESC] = COMBO(esc_combo, SD_ESC),
   [JK_TAB] = COMBO(tab_combo, KC_TAB),
   [COMM_TAB] = COMBO(comm_tab_combo, LCMD(KC_TAB))
 };
