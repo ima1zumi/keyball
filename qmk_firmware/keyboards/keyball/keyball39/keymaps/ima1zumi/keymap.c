@@ -22,7 +22,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 // Tap dance definitions
 enum {
-  TD_D_ESC,     // 1回=d, 2回=esc
+  TD_C_ESC,     // 1回=d, 2回=esc
   TD_QUOT_DQUO, // 1回=', 2回="
   TD_COLN_SCLN  // 1回=:, 2回=;
 };
