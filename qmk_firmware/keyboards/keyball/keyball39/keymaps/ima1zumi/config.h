@@ -41,6 +41,3 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 // マクロ機能と古い関数機能の無効化
 #define NO_ACTION_MACRO
 #define NO_ACTION_FUNCTION
-
-// レイヤー変数を32bitから8bitにする（レイヤー数が8枚以下）
-#define LAYER_STATE_8BIT
