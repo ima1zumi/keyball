@@ -36,18 +36,18 @@ tap_dance_action_t tap_dance_actions[] = {
 
 enum combos {
   DF_ESC,
-  HJ_TAB,
+  JK_TAB,
   COMM_TAB
 };
 
 const uint16_t PROGMEM esc_combo[] = {KC_D, CTL_T(KC_F), COMBO_END};
-const uint16_t PROGMEM tab_combo[] = {KC_H, KC_J, COMBO_END};
+const uint16_t PROGMEM tab_combo[] = {KC_J, KC_K, COMBO_END};
 const uint16_t PROGMEM comm_tab_combo[] = {KC_A, KC_Q, COMBO_END};
 
 combo_t key_combos[] = {
   [DF_ESC] = COMBO(esc_combo, KC_ESC),
-  [HJ_TAB] = COMBO(tab_combo, KC_TAB),
-  [COMM_TAB] = COMBO(comm_tab_combo, CMD_T(KC_TAB))
+  [JK_TAB] = COMBO(tab_combo, KC_TAB),
+  [COMM_TAB] = COMBO(comm_tab_combo, LCMD(KC_TAB))
 };
 
 // clang-format off
