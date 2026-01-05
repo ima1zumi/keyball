@@ -41,3 +41,5 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 // マクロ機能と古い関数機能の無効化
 #define NO_ACTION_MACRO
 #define NO_ACTION_FUNCTION
+
+#define COMBO_TERM 300
