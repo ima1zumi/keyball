@@ -37,7 +37,7 @@ tap_dance_action_t tap_dance_actions[] = {
 enum combos {
   DF_ESC,
   HJ_TAB,
-  COMM_SHIFT_TAB
+  COMM_TAB
 };
 
 const uint16_t PROGMEM esc_combo[] = {KC_D, CTL_T(KC_F), COMBO_END};
