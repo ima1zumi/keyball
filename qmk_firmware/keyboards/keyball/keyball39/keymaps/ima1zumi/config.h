@@ -42,4 +42,5 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define NO_ACTION_MACRO
 #define NO_ACTION_FUNCTION
 
-#define COMBO_TERM 100
+#define COMBO_TERM 80
+#define TAPPING_TERM 150
